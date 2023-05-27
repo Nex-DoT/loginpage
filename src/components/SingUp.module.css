@@ -93,7 +93,7 @@ form:nth-child(){
     color: white;
 }
 .erore{
-    border: 2px solid red;
+    border: 2px solid #ff000077;
     outline: none;
 
 }
