@@ -3,6 +3,8 @@ import Validation from './Validation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from "./SingUp.module.css"
+import { Link } from 'react-router-dom/cjs/react-router-dom';
+
 const SingUp = () => {
     const [data , setData] = useState({
         name:'',
@@ -97,7 +99,7 @@ const SucessNotify = ()=>{toast.success('Welcome to our club.', {
                     {errrors.checkbox && focus.checkbox && <span>{errrors.checkbox}</span>}
                 </div>
                 <button className={styles.btn} type="submit">Submit</button>
-                <a href="" className={styles.logBtn}>Login</a>
+                <Link to="/login" className={styles.logBtn}>Login</Link>
             </form>
             <ToastContainer/>
         </div>
