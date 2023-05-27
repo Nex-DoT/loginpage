@@ -77,8 +77,8 @@ const SucessNotify = ()=>{toast.success('Welcome to our club.', {
                     <input className={(errrors.password) ? styles.erore : styles.success} type="password" name='password' value={data.password} onChange={changeHandeler} onFocus={focusHandeler}/>
                     {errrors.password && focus.password && <span> {errrors.password} </span>}
                 </div>
-                <button className={styles.btn} type="submit">Submit</button>
-                <Link to="/singup" className={styles.logBtn}>Login</Link>
+                <button className={styles.btn} type="submit">Login</button>
+                <Link to="/singup" className={styles.logBtn}>SingUp</Link>
             </form>
             <ToastContainer/>
         </div>
