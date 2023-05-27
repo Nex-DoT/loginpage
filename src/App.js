@@ -1,18 +1,18 @@
 import LoginPage from './components/LoginPage';
 import SingUp from './components/SingUp';
 import './App.css';
-import { Route , Switch , Redirect} from 'react-router-dom/cjs/react-router-dom.min';
+import { Route , Routes , Navigate} from 'react-router-dom';
 
 function App() {
   return (
     <>
         {/* <LoginPage/> */}
         {/* <SingUp/> */}
-        <switch>
-          <Route path="/login" component={LoginPage}/>
-          <Route path="/singup" component={SingUp}/>
-          <Redirect from="/" to="/singup"/>
-        </switch>
+        <Routes>
+          <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/singup" element={<SingUp/>}/>
+          <Route path="/" element={<Navigate to="/singup"/>}/>
+        </Routes>
     </>
   );
 }

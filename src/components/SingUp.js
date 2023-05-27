@@ -3,8 +3,7 @@ import Validation from './Validation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from "./SingUp.module.css"
-import { Link } from 'react-router-dom/cjs/react-router-dom';
-
+import {Link} from "react-router-dom";
 const SingUp = () => {
     const [data , setData] = useState({
         name:'',
