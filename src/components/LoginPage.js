@@ -2,6 +2,7 @@ import React,{ useState ,useEffect } from 'react';
 import Validation from './Validation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import styles from "./LoginPage.module.css"
 const LoginPage = () => {
     const [data , setData] = useState({
         name:'',
@@ -27,7 +28,7 @@ useEffect(()=>{
     setErrrors(Validation(data));
 } , [data , focus])
 const focusHandeler = event=>{
-    setFocus({...focus , [event.target.name]:true})
+    setFocus({...focus , [event.target.name]:[!data.checkbox]})
 }
 const submitHandeler =event=>{
     event.preventDefault()
@@ -66,36 +67,37 @@ const SucessNotify = ()=>{toast.success('Welcome to our club.', {
     theme: "dark",
     });}
     return (
-        <div>
-            <h1>singUp</h1>
+        <div className={styles.box}>
+            <h1>Singup</h1>
             <form onSubmit={submitHandeler}>
-                <div>
-                    <label>Name :</label>
-                    <input type="text" name='name' value={data.name} onChange={changeHandeler} onFocus={focusHandeler}/>
+                <div className={styles.inputs}>
+                    <label>Name </label>
+                    <input className={(errrors.name) ? styles.erore : styles.success} type="text" name='name' value={data.name} onChange={changeHandeler} onFocus={focusHandeler}/>
                     {errrors.name && focus.name && <span>{errrors.name}</span>}
                 </div>
-                <div>
-                    <label>Email :</label>
-                    <input type="text" name='email' value={data.email} onChange={changeHandeler} onFocus={focusHandeler}/>
+                <div className={styles.inputs}>
+                    <label>Email </label>
+                    <input className={(errrors.email) ? styles.erore : styles.success} type="text" name='email' value={data.email} onChange={changeHandeler} onFocus={focusHandeler}/>
                     {errrors.email && focus.email && <span>{errrors.email}</span>}
 
                 </div>
-                <div>
-                    <label>Password :</label>
-                    <input type="password" name='password' value={data.password} onChange={changeHandeler} onFocus={focusHandeler}/>
+                <div className={styles.inputs}>
+                    <label>Password </label>
+                    <input className={(errrors.password) ? styles.erore : styles.success} type="password" name='password' value={data.password} onChange={changeHandeler} onFocus={focusHandeler}/>
                     {errrors.password && focus.password && <span> {errrors.password} </span>}
                 </div>
-                <div>
-                    <label>confirm Paswword :</label>
-                    <input type="password" name='confirmpassword' value={data.confirmpassword} onChange={changeHandeler} onFocus={focusHandeler}/>
+                <div className={styles.inputs}>
+                    <label>C Paswword</label>
+                    <input className={(errrors.confirmpassword) ? styles.erore : styles.success} type="password" name='confirmpassword' value={data.confirmpassword} onChange={changeHandeler} onFocus={focusHandeler}/>
                     {errrors.confirmpassword && focus.confirmpassword && <span> {errrors.confirmpassword} </span>}
                 </div>
-                <div>
-                    <label>I accept terms of privecy policy</label>
-                    <input type="checkbox" name='checkbox' value={data.name} onChange={changeHandeler} onFocus={focusHandeler}/>
+                <div className={styles.checkbox}>
+                    <label>I accept terms of privecy policy </label>
+                    <input className={(errrors.checkbox) ? styles.erore : styles.success} type="checkbox" name='checkbox' value={data.name} onChange={changeHandeler} onFocus={focusHandeler}/>
                     {errrors.checkbox && focus.checkbox && <span>{errrors.checkbox}</span>}
                 </div>
-                <button type="submit">Submit</button>
+                <button className={styles.btn} type="submit">Submit</button>
+                <a href="" className={styles.logBtn}>Login</a>
             </form>
             <ToastContainer/>
         </div>
